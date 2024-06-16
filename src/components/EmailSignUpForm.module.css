@@ -1,0 +1,43 @@
+.form {
+  width: 100%;
+  padding-left: 35%;
+  font-weight: bold;
+}
+
+.code_input {
+  float: left;
+  display: flex;
+  width: 20%;
+  height: 2.5rem;
+  margin-right: 1rem;
+}
+
+.label {
+  color: rgb(0, 0, 0);
+  font-size: 1rem;
+}
+
+.input {
+  display: block;
+  height: 2.5rem;
+  width: 60%;
+}
+
+.submit_button {
+  margin-left: 15%;
+  width: 30%;
+  height: 2.5rem;
+  display: block;
+  margin-top: 1rem;
+}
+
+.error {
+  font-size: 0.8rem;
+  height: 0.8rem;
+  color: red;
+}
+
+.code_button {
+  width: 15%;
+  height: 2.5rem;
+}
