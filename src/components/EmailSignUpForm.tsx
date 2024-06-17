@@ -5,7 +5,7 @@ import styles from "./EmailSignUpForm.module.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { setLogin } from "../store/slice/LoginSlice";
+import { setEmail, setLogin } from "../store/slice/LoginSlice";
 import { useNavigate } from "react-router-dom";
 
 const EmailSignUpForm = () => {
@@ -33,6 +33,7 @@ const EmailSignUpForm = () => {
       setErrorButton(data.errorMessage);
     } else {
       dispatch(setLogin()); // 状态切换到login
+      dispatch(setEmail(values.email));
       navigate("/"); // 回到主页
     }
     actions.resetForm(); // clear the from

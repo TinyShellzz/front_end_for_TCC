@@ -2,10 +2,12 @@ import { useFormik } from "formik";
 import EmailLoginSchema from "../schema/EmailLoginSchema";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { setLogin } from "../store/slice/LoginSlice";
+import { setEmail, setLogin, setPermission } from "../store/slice/LoginSlice";
+import { useNavigate } from "react-router-dom";
 
 const EmailLoginForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const onSubmit = async (values: any, actions: any) => {
     let data: any = await axios({
@@ -22,7 +24,8 @@ const EmailLoginForm = () => {
       console.log(data.errorMessage);
     } else {
       dispatch(setLogin()); // 状态切换到login
-      // navigate("/"); // 回到主页
+      dispatch(setEmail(values.email));
+      navigate("/"); // 回到主页
     }
     actions.resetForm(); // clear the from
   };
