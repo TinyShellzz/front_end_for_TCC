@@ -12,10 +12,12 @@ export const EmailSignUpSchema = yup.object().shape({
     .matches(emailRules, "只接受qq邮箱注册"),
   password: yup
     .string()
-    .matches(passwordRules, { message: "密码至少6位，包含至少一个数组和字母" }),
+    .matches(passwordRules, { message: "密码至少6位，包含至少一个数组和字母" })
+    .required("必填"),
   confirmPassword: yup
     .string()
     .oneOf([yup.ref("password"), ""], "密码不匹配")
     .required("必填"),
   code: yup.string().matches(codeRules, "验证码格式错误").required("必填"),
 });
+export default EmailSignUpSchema;

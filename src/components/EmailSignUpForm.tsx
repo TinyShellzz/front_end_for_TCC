@@ -3,18 +3,32 @@ import { EmailSignUpSchema } from "../schema/EmailSignUpSchema";
 import useRegisterCodeQuery from "../hooks/useRegisterCodeQuery";
 import styles from "./EmailSignUpForm.module.css";
 import { useEffect, useState } from "react";
+import axios from "axios";
 
-const BasicForm = () => {
+export const EmailSignUpForm = () => {
   const [gotCode, setGotCode] = useState(false);
   const [time, setTime] = useState(0);
   const [errorButton, setErrorButton] = useState("");
 
-  const onSubmit = (values: any, actions: any) => {
-    console.log(values);
-    console.log(actions);
-    //...
+  const onSubmit = async (values: any, actions: any) => {
+    // 等待 axios 执行完毕
+    let data: any = await axios({
+      method: "post",
+      url: "http://127.0.0.1:8000/backend/register_email",
+      data: {
+        email: values.email,
+        password: values.password,
+        code: values.code,
+      },
+    }).then((res) => res.data);
+
+    if (data.errorMessage != undefined) {
+      console.log(data.errorMessage);
+      setErrorButton(data.errorMessage);
+    }
     actions.resetForm(); // clear the from
   };
+
   const {
     values,
     errors,
@@ -174,5 +188,4 @@ const BasicForm = () => {
     </form>
   );
 };
-
-export default BasicForm;
+export default EmailSignUpForm;
