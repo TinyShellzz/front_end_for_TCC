@@ -22,7 +22,7 @@ const LoginSlice = createSlice({
       // or increment: (state, action)
       state.login = false;
     },
-    setPermission: (state: any, action: PayloadAction<{ value: number }>) => {
+    setPermission: (state, action: PayloadAction<{ value: number }>) => {
       state.permission = action.payload.value;
     },
   },

@@ -12,13 +12,13 @@ const MobileSlice = createSlice({
   name: "mobile",
   initialState,
   reducers: {
-    mobile: (state: any) => {
+    mobile: (state) => {
       // or increment: (state, action)
-      state = true;
+      state.mobile = true;
     },
-    not_mobile: (state: any) => {
+    not_mobile: (state) => {
       // or increment: (state, action)
-      state = false;
+      state.mobile = false;
     },
   },
 });
