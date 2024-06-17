@@ -2,8 +2,8 @@ import { useFormik } from "formik";
 import EmailLoginSchema from "../schema/EmailLoginSchema";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { setEmail, setLogin, setPermission } from "../store/slice/LoginSlice";
 import { useNavigate } from "react-router-dom";
+import loginWithSessionToken from "../hooks/loginWithSessionToken";
 
 const EmailLoginForm = () => {
   const dispatch = useDispatch();
@@ -23,8 +23,7 @@ const EmailLoginForm = () => {
     if (data && data.errorMessage != undefined) {
       console.log(data.errorMessage);
     } else {
-      dispatch(setLogin()); // 状态切换到login
-      dispatch(setEmail(values.email));
+      loginWithSessionToken(dispatch);
       navigate("/"); // 回到主页
     }
     actions.resetForm(); // clear the from
