@@ -6,7 +6,7 @@ const useRegisterCodeQuery = (data: { email: string; phone: string }) => {
     queryFn: () =>
       axios({
         method: "post",
-        url: "http://127.0.0.1:8000/backend/get_register_code",
+        url: "http://localhost/backend/get_register_code",
         data: data,
       }).then((res) => res.data),
     queryKey: ["code"],

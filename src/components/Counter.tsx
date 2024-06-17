@@ -1,19 +1,18 @@
-import { decrement, incrementByAmount } from "../store/counter/CounterSlice";
+import { decrement, incrementByAmount } from "../store/slice/CounterSlice";
 import { RootState } from "../store/store";
 import { useDispatch, useSelector } from "react-redux";
+import { setLogin, setLogout } from "../store/slice/LoginSlice";
 
 const Counter = () => {
-  const count = useSelector((state: RootState) => state.counter.value);
+  const count = useSelector((state: RootState) => state.login.login);
   const dispatch = useDispatch();
 
   return (
     <div>
       <h2>{count}</h2>
       <div>
-        <button onClick={() => dispatch(incrementByAmount({ value: 10 }))}>
-          Increment
-        </button>
-        <button onClick={() => dispatch(decrement())}>Decrement</button>
+        <button onClick={() => dispatch(setLogin())}>Increment</button>
+        <button onClick={() => dispatch(setLogout())}>Decrement</button>
       </div>
     </div>
   );

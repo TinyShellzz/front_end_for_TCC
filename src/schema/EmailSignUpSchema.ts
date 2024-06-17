@@ -4,7 +4,7 @@ const passwordRules = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
 const emailRules = /^[a-zA-Z0-9_.+-]+@qq.com$/;
 const codeRules = /^[a-zA-Z0-9]{6}$/;
 
-export const EmailSignUpSchema = yup.object().shape({
+const EmailSignUpSchema = yup.object().shape({
   email: yup
     .string()
     .email("邮箱格式不正确")

@@ -1,30 +1,39 @@
 import { useFormik } from "formik";
-import { EmailSignUpSchema } from "../schema/EmailSignUpSchema";
+import EmailSignUpSchema from "../schema/EmailSignUpSchema";
 import useRegisterCodeQuery from "../hooks/useRegisterCodeQuery";
 import styles from "./EmailSignUpForm.module.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { setLogin } from "../store/slice/LoginSlice";
+import { useNavigate } from "react-router-dom";
 
-export const EmailSignUpForm = () => {
+const EmailSignUpForm = () => {
   const [gotCode, setGotCode] = useState(false);
   const [time, setTime] = useState(0);
   const [errorButton, setErrorButton] = useState("");
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const onSubmit = async (values: any, actions: any) => {
     // 等待 axios 执行完毕
     let data: any = await axios({
       method: "post",
-      url: "http://127.0.0.1:8000/backend/register_email",
+      url: "http://localhost/backend/register_email",
       data: {
         email: values.email,
         password: values.password,
         code: values.code,
       },
+      withCredentials: true, // 设置cookie
     }).then((res) => res.data);
 
-    if (data.errorMessage != undefined) {
+    if (data && data.errorMessage != undefined) {
       console.log(data.errorMessage);
       setErrorButton(data.errorMessage);
+    } else {
+      dispatch(setLogin()); // 状态切换到login
+      navigate("/"); // 回到主页
     }
     actions.resetForm(); // clear the from
   };
