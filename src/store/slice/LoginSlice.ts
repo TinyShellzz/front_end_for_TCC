@@ -3,11 +3,15 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 interface LoginState {
   login: boolean;
   permission: number;
+  email: string;
+  phone: string;
 }
 
 const initialState: LoginState = {
   login: false,
   permission: 0,
+  email: "",
+  phone: "",
 };
 
 const LoginSlice = createSlice({
@@ -22,11 +26,18 @@ const LoginSlice = createSlice({
       // or increment: (state, action)
       state.login = false;
     },
-    setPermission: (state, action: PayloadAction<{ value: number }>) => {
-      state.permission = action.payload.value;
+    setPermission: (state, action: PayloadAction<number>) => {
+      state.permission = action.payload;
+    },
+    setEmail: (state, action: PayloadAction<string>) => {
+      state.email = action.payload;
+    },
+    setPhone: (state, action: PayloadAction<string>) => {
+      state.phone = action.payload;
     },
   },
 });
 
-export const { setLogin, setLogout, setPermission } = LoginSlice.actions;
+export const { setLogin, setLogout, setPermission, setEmail, setPhone } =
+  LoginSlice.actions;
 export default LoginSlice.reducer;

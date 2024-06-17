@@ -12,7 +12,6 @@ const Navbar = () => {
     return <NavbarMobile />;
   }
 
-  console.log(login);
   if (login) {
     return (
       <div>

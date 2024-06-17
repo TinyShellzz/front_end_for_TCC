@@ -1,17 +1,16 @@
 import { useQuery } from "react-query";
 import axios from "axios";
 
-const useRegisterCodeQuery = (data: { email: string; phone: string }) => {
+const useUserQuery = () => {
   return useQuery({
     queryFn: () =>
       axios({
-        method: "post",
-        url: "http://localhost/backend/get_register_code",
-        data: data,
+        method: "get",
+        url: "http://localhost/backend/get_user",
       }).then((res) => res.data),
-    queryKey: ["code"],
+    queryKey: ["user"],
     refetchOnWindowFocus: false,
     enabled: false, // 用refetch()执行
   });
 };
-export default useRegisterCodeQuery;
+export default useUserQuery;
