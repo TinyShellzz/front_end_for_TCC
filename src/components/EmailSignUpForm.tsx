@@ -58,7 +58,7 @@ const BasicForm = () => {
     }
 
     refetch();
-    console.log("----");
+    console.log("获取验证码");
     setGotCode(true);
     // 获取验证码倒计时
     setTime(10);
