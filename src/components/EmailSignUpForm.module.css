@@ -21,9 +21,6 @@
   justify-content: center;
 }
 
-.box_input {
-}
-
 .box_error {
   justify-content: space-between;
   display: flex;

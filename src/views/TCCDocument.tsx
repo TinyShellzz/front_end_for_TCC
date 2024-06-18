@@ -1,11 +1,22 @@
 import NavbarDocument from "../components/tcc_document/NavbarDocument";
-import DocumentComponent from "../components/tcc_document/DocumentComponent";
+import DocumentContent from "../components/tcc_document/DocumentContent";
+import { useParams } from "react-router-dom";
+import styles from "./TCCDocument.module.css";
+import RightSideNavbar from "../components/tcc_document/RightSideNavbar";
+import MenuButton from "../components/tcc_document/MenuButton";
+import { useSelector } from "react-redux";
+import { RootState } from "../store/store";
 
-export const TCCDocument = (Props: { name: string }) => {
+export const TCCDocument = () => {
+  let { name } = useParams();
+  const mobile = useSelector((state: RootState) => state.mobile.mobile);
+
   return (
-    <div>
-      <NavbarDocument></NavbarDocument>
-      <DocumentComponent name={Props.name} />
+    <div className={styles.document}>
+      <MenuButton />
+      {mobile < 3 && <NavbarDocument></NavbarDocument>}
+      <DocumentContent name={"" + name} />
+      {mobile < 2 && <RightSideNavbar />}
     </div>
   );
 };

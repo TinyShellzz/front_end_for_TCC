@@ -28,7 +28,7 @@ const Navbar = () => {
     dispatch(setPhone(""));
   };
 
-  if (mobile) {
+  if (mobile >= 3) {
     return <NavbarMobile />;
   }
 

@@ -1,27 +1,22 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-interface MobileSlice {
-  mobile: boolean;
+interface MobileState {
+  mobile: number;
 }
 
-const initialState: MobileSlice = {
-  mobile: false,
+const initialState: MobileState = {
+  mobile: 0,
 };
 
 const MobileSlice = createSlice({
   name: "mobile",
   initialState,
   reducers: {
-    mobile: (state) => {
-      // or increment: (state, action)
-      state.mobile = true;
-    },
-    not_mobile: (state) => {
-      // or increment: (state, action)
-      state.mobile = false;
+    setMobile: (state, action: PayloadAction<number>) => {
+      state.mobile = action.payload;
     },
   },
 });
 
-export const { mobile, not_mobile } = MobileSlice.actions;
+export const { setMobile } = MobileSlice.actions;
 export default MobileSlice.reducer;
