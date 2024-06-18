@@ -1,0 +1,54 @@
+.box_nav {
+  background-color: #f4f7fa;
+  font-weight: bold;
+  color: rgb(139, 129, 129);
+
+  display: block;
+  height: 3.5rem;
+}
+
+.box_content {
+  display: flex;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 2.8rem;
+}
+
+.box_icon {
+  width: 10rem;
+}
+.box_menu {
+  display: flex;
+  width: 80%;
+  font-family: "Microsoft soft";
+  font-size: 0.8rem;
+  padding-left: 10%;
+}
+.icon {
+  max-width: 100%;
+}
+
+.normal_box {
+  display: flex;
+  width: 4rem;
+  padding-top: 0.7rem;
+}
+
+.bigger_box {
+  display: flex;
+  width: 7rem;
+  padding-top: 0.7rem;
+}
+
+.box_fill {
+  width: 10%;
+}
+
+.p {
+  color: pink;
+}
+
+.p:hover {
+  color: rgb(255, 113, 137);
+}

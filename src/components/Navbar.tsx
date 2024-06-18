@@ -2,7 +2,9 @@ import { RootState } from "../store/store";
 import { useDispatch, useSelector } from "react-redux";
 import NavbarMobile from "./NavbarMobile";
 import { Link } from "react-router-dom";
-import { UseDispatch } from "react-redux";
+import styles from "./Navbar.module.css";
+import tcc_logo from "../assets/images/logo.png";
+
 import {
   setEmail,
   setLogout,
@@ -30,34 +32,67 @@ const Navbar = () => {
     return <NavbarMobile />;
   }
 
-  if (login) {
-    return (
-      <div>
-        <div>图标</div>
-        <div>文档</div>
-        <div>白名单</div>
-        <div>小黑屋</div>
-        <div onClick={logout}>
-          <Link to="/">登出</Link>
+  return (
+    <div className={styles.box_nav}>
+      <div className={styles.box_content}>
+        <div className={styles.box_icon}>
+          <img className={styles.icon} src={tcc_logo} alt="" />
+        </div>
+        <div className={styles.box_menu}>
+          <div className={styles.normal_box}>
+            <Link to="/">
+              <p className={styles.p}>首页</p>
+            </Link>
+          </div>
+          <div className={styles.normal_box}>
+            <Link to="/document">
+              <p className={styles.p}>文档</p>
+            </Link>
+          </div>
+          <div className={styles.normal_box}>
+            <p className={styles.p}>白名单</p>
+          </div>
+          <div className={styles.normal_box}>
+            <p className={styles.p}>小黑屋</p>
+          </div>
+          {!permission && (
+            <div className={styles.bigger_box}>
+              <p className={styles.p}>加入服务器</p>
+            </div>
+          )}
+          {permission != 0 && (
+            <div className={styles.normal_box}>
+              <p className={styles.p}>个人信息</p>
+            </div>
+          )}
+          {permission >= 3 && (
+            <div className={styles.normal_box}>
+              <p className={styles.p}>审核</p>
+            </div>
+          )}
+          {login ? (
+            <div className={styles.bigger_box} onClick={logout}>
+              <Link to="/">
+                <p className={styles.p}>退出登录</p>
+              </Link>
+            </div>
+          ) : (
+            <>
+              <div className={styles.bigger_box}>
+                <Link to="/login">
+                  <p className={styles.p}>登录</p>
+                </Link>
+                <div className={styles.box_fill}></div>
+                <Link to="/signup">
+                  <p className={styles.p}>注册</p>
+                </Link>
+              </div>
+            </>
+          )}
         </div>
       </div>
-    );
-  } else {
-    return (
-      <div>
-        <div>图标</div>
-        <div>文档</div>
-        <div>白名单</div>
-        <div>小黑屋</div>
-        <div>
-          <Link to="/login">登录</Link>
-        </div>
-        <div>
-          <Link to="/signup">注册</Link>
-        </div>
-      </div>
-    );
-  }
+    </div>
+  );
 };
 
 export default Navbar;

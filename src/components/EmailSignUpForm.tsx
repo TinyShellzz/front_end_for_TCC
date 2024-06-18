@@ -203,10 +203,6 @@ const EmailSignUpForm = () => {
             </div>
           </div>
 
-          <div className={styles.box_action}>
-            <div>忘记密码?</div> <div>注册一个</div>
-          </div>
-
           <div className={styles.box_submit}>
             <button
               className={styles.submit_button}
