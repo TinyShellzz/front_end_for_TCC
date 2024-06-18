@@ -104,98 +104,121 @@ const EmailSignUpForm = () => {
   }, [time]);
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit} autoComplete="off">
-      <label htmlFor="email">Email</label>
-      <input
-        className={styles.input}
-        value={values.email}
-        onChange={handleChange}
-        onBlur={handleBlur}
-        id="email"
-        type="text"
-        placeholder="Enter your email"
-      ></input>
-      {touched.email && errors.email && (
-        <p className={styles.error}>{errors.email}</p>
-      )}
+    <div className={styles.box}>
+      <div className={styles.box_login}>
+        <h1 className={styles.h1}>立🐔注册</h1>
+        <form
+          className={styles.form}
+          onSubmit={handleSubmit}
+          autoComplete="off"
+        >
+          <div className={styles.box_input}>
+            <label htmlFor="email">邮箱</label>
+            <input
+              className={styles.input}
+              value={values.email}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              id="email"
+              type="text"
+              placeholder="键入你的QQ邮箱"
+            ></input>
+            <div className={styles.box_error}>
+              {touched.email && errors.email && <p>{errors.email}</p>}
+            </div>
+          </div>
 
-      <label htmlFor="password">Password</label>
-      <input
-        className={styles.input}
-        value={values.password}
-        onChange={handleChange}
-        onBlur={handleBlur}
-        id="password"
-        type="password"
-        placeholder="Enter your email"
-      ></input>
-      {touched.password && errors.password && (
-        <p className={styles.error}>{errors.password}</p>
-      )}
+          <div className={styles.box_input}>
+            <label htmlFor="password">密码</label>
+            <input
+              className={styles.input}
+              value={values.password}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              id="password"
+              type="password"
+              placeholder="键入你的密码"
+            ></input>
+            <div className={styles.box_error}>
+              {touched.password && errors.password && <p>{errors.password}</p>}
+            </div>
+          </div>
 
-      <label htmlFor="confirmPassword">Confirm Password</label>
-      <input
-        className={styles.input}
-        value={values.confirmPassword}
-        onChange={handleChange}
-        onBlur={handleBlur}
-        id="confirmPassword"
-        type="password"
-        placeholder="Enter your email"
-      ></input>
-      {touched.confirmPassword && errors.confirmPassword && (
-        <p className={styles.error}>{errors.confirmPassword}</p>
-      )}
+          <div className={styles.box_input}>
+            <label htmlFor="confirmPassword">确认密码</label>
+            <input
+              className={styles.input}
+              value={values.confirmPassword}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              id="confirmPassword"
+              type="password"
+              placeholder="再次键入你的密码"
+            ></input>
+            <div className={styles.box_error}>
+              {touched.confirmPassword && errors.confirmPassword && (
+                <p>{errors.confirmPassword}</p>
+              )}
+            </div>
+          </div>
 
-      <label htmlFor="code">
-        验证码
-        <br />
-      </label>
-      <input
-        className={styles.code_input}
-        value={values.code}
-        onChange={handleChange}
-        onBlur={handleBlur}
-        id="code"
-        type="text"
-        placeholder="输入验证码"
-      ></input>
+          <div className={styles.box_input}>
+            <label htmlFor="code">
+              验证码
+              <br />
+            </label>
+            <input
+              className={styles.code_input}
+              value={values.code}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              id="code"
+              type="text"
+              placeholder="输入验证码"
+            ></input>
 
-      <button
-        disabled={gotCode}
-        className={styles.code_button}
-        onClick={get_code}
-        type="button"
-      >
-        {gotCode ? time : "获取验证码"}
-      </button>
-      {touched.code && errors.code && (
-        <p className={styles.error}>{errors.code}</p>
-      )}
-      {errorButton &&
-        (!touched.password ||
-          !touched.confirmPassword ||
-          !touched.email ||
-          errors.password ||
-          errors.email ||
-          errors.confirmPassword) && (
-          <p className={styles.error}>{errorButton}</p>
-        )}
-      {!isLoading && error && <p className={styles.error}>网络错误</p>}
-      {!isLoading &&
-        code &&
-        Object.prototype.hasOwnProperty.call(code, "errorMessage") && (
-          <p className={styles.error}>{code.errorMessage}</p>
-        )}
+            <button
+              disabled={gotCode}
+              className={styles.code_button}
+              onClick={get_code}
+              type="button"
+            >
+              {gotCode ? time : "获取验证码"}
+            </button>
+            <div className={styles.box_error}>
+              {touched.code && errors.code && <p>{errors.code}</p>}
+              {errorButton &&
+                (!touched.password ||
+                  !touched.confirmPassword ||
+                  !touched.email ||
+                  errors.password ||
+                  errors.email ||
+                  errors.confirmPassword) && <p>{errorButton}</p>}
+              {!isLoading && error && <p>网络错误</p>}
+              {!isLoading &&
+                code &&
+                Object.prototype.hasOwnProperty.call(code, "errorMessage") && (
+                  <p>{code.errorMessage}</p>
+                )}
+            </div>
+          </div>
 
-      <button
-        className={styles.submit_button}
-        disabled={isSubmitting}
-        type="submit"
-      >
-        submit
-      </button>
-    </form>
+          <div className={styles.box_action}>
+            <div>忘记密码?</div> <div>注册一个</div>
+          </div>
+
+          <div className={styles.box_submit}>
+            <button
+              className={styles.submit_button}
+              disabled={isSubmitting}
+              type="submit"
+            >
+              注册
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
   );
 };
 export default EmailSignUpForm;
