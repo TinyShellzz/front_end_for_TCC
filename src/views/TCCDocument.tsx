@@ -6,16 +6,17 @@ import RightSideNavbar from "../components/tcc_document/RightSideNavbar";
 import MenuButton from "../components/tcc_document/MenuButton";
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
+import EditButton from "../components/tcc_document/EditButton";
 
 export const TCCDocument = () => {
-  let { name } = useParams();
   const mobile = useSelector((state: RootState) => state.mobile.mobile);
 
   return (
     <div className={styles.document}>
-      <MenuButton />
+      <EditButton></EditButton>
+      {mobile >= 3 && <MenuButton />}
       {mobile < 3 && <NavbarDocument></NavbarDocument>}
-      <DocumentContent name={"" + name} />
+      <DocumentContent />
       {mobile < 2 && <RightSideNavbar />}
     </div>
   );

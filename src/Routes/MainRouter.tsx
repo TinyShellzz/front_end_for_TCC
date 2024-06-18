@@ -9,7 +9,7 @@ const MainRouter = () => (
     <Route path="/signup" element={<EmailSignUpForm />} />
     <Route path="/login" element={<EmailLoginForm />} />
     <Route path="/document" element={<TCCDocument />}></Route>
-    <Route path="/document/:name" element={<TCCDocument />}></Route>
+    <Route path="/document/:content_name" element={<TCCDocument />}></Route>
   </Routes>
 );
 

@@ -1,18 +1,12 @@
 .nav {
-  border-color: black;
-  border-style: solid;
-  border-width: 2px;
-
   display: flex;
   justify-content: center;
   font-family: "Microsoft soft";
+
+  height: 400px;
 }
 
 .chapter {
-  border-color: black;
-  border-style: solid;
-  border-width: 2px;
-
   width: 100%;
   height: 2rem;
   display: flex;
@@ -20,23 +14,19 @@
   align-items: center;
   padding-right: 20px;
 
-  background-color: rgb(182, 221, 255);
+  background-color: rgb(255, 237, 237);
+}
+
+.chapter:hover {
+  background-color: rgb(250, 193, 193);
 }
 
 .fill {
-  border-color: rgb(248, 0, 0);
-  border-style: solid;
-  border-width: 2px;
-
   width: 150px;
   height: 2rem;
 }
 
 .container {
-  border-color: black;
-  border-style: solid;
-  border-width: 2px;
-
   width: 180px;
 }
 
@@ -49,27 +39,25 @@
   justify-content: center;
   align-items: center;
 }
-.arrow_box:hover {
-  background: rgb(219, 219, 219);
-  border-style: solid;
-  border-width: 1px;
-  border-color: rgb(247, 181, 102);
-}
 
 .arrow {
   width: 15px;
 }
 
 .p {
-  color: pink;
+  color: rgb(107, 107, 107);
 }
 
 .p:hover {
   color: rgb(255, 163, 51);
 }
 
+.child_chapter:hover {
+  background-color: rgb(255, 192, 192);
+}
+
 .child_box {
   padding-left: 20px;
 
-  background-color: azure;
+  background-color: rgb(250, 250, 250);
 }

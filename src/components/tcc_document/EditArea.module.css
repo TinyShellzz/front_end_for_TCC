@@ -1,0 +1,20 @@
+.textarea {
+  width: 100%;
+  height: 500px;
+  padding: 15px;
+  border-radius: 5px;
+  outline: none;
+  resize: none;
+  font-size: 16px;
+  border-color: #bfbfbf;
+}
+
+textarea:is(:focus, :valid) {
+  border-color: #4671ea;
+}
+
+.button_box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

@@ -3,6 +3,7 @@ import counterReducer from "./slice/CounterSlice";
 import loginReducer from "./slice/LoginSlice";
 import mobileReducer from "./slice/MobileSlice";
 import ChapterReducer from "./doc_slice/ChapterSlice";
+import EditDocumentReducer from "./doc_slice/EditDocumentSlice";
 
 export const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ export const store = configureStore({
     login: loginReducer,
     mobile: mobileReducer,
     chapter: ChapterReducer,
+    edit: EditDocumentReducer,
   },
 });
 
