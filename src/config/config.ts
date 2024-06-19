@@ -1,5 +1,9 @@
-export var config = {
-  firstRender: true,
-  documentContent: "",
-  content_name: "",
-};
+class Config {
+  firstRender: any;
+  documentContent: any;
+  content_name: any;
+  setCountent: any;
+}
+
+export var config = new Config();
+config.firstRender = true;

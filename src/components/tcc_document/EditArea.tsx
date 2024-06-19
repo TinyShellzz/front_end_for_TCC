@@ -6,8 +6,11 @@ import { config } from "../../config/config";
 import { useDispatch } from "react-redux";
 import { setEdit } from "../../store/doc_slice/EditDocumentSlice";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const EditArea = () => {
+  const navigate = useNavigate();
+
   const onSubmit = async (values: any, actions: any) => {
     // 等待 axios 执行完毕
     let data: any = await axios({
@@ -25,7 +28,7 @@ const EditArea = () => {
     } else {
       console.log(data);
       dispatch(setEdit(false)); // 状态切换到不编辑
-      config.documentContent = values.content;
+      navigate("/document");
     }
   };
   const dispatch = useDispatch();

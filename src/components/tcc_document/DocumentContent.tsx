@@ -9,7 +9,6 @@ import EditArea from "./EditArea";
 import "github-markdown-css";
 import rehypeRaw from "rehype-raw";
 import { config } from "../../config/config";
-import keep_on_moving from "../../assets/images/keep-on-moving.webp";
 
 const DocumentContent = () => {
   const edit = useSelector((state: RootState) => state.edit.value);
