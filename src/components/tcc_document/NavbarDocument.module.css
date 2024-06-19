@@ -4,6 +4,8 @@
   font-family: "Microsoft soft";
 
   height: 400px;
+  position: sticky;
+  top: 68px;
 }
 
 .chapter {
@@ -52,12 +54,14 @@
   color: rgb(255, 163, 51);
 }
 
+.child_chapter {
+  padding-left: 10%;
+}
+
 .child_chapter:hover {
   background-color: rgb(255, 192, 192);
 }
 
 .child_box {
-  padding-left: 20px;
-
   background-color: rgb(250, 250, 250);
 }

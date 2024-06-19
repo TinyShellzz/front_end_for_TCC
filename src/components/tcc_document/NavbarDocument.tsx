@@ -29,9 +29,12 @@ const NavbarDocument = () => {
 
             <div
               className={styles.chapter}
-              onClick={() => dispatch(setChapter(1))}
+              onClick={() => {
+                dispatch(setChapter(1));
+                navigate("/document/1_rules");
+              }}
             >
-              <div onClick={() => navigate("/document/1_rules")}>
+              <div>
                 <p className={styles.p}>服务器守则</p>
               </div>
               <div className={styles.arrow_box}>
@@ -58,6 +61,8 @@ const NavbarDocument = () => {
                 </div>
               </div>
             )}
+
+            {/* 上面的是demo */}
             <div className={styles.chapter}>
               <Link
                 to="/document/2_newplayer"

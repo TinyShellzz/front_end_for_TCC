@@ -6,7 +6,10 @@ import { useEffect, useState } from "react";
 import { RootState } from "../../store/store";
 import { useSelector } from "react-redux";
 import EditArea from "./EditArea";
+import "github-markdown-css";
+import rehypeRaw from "rehype-raw";
 import { config } from "../../config/config";
+import keep_on_moving from "../../assets/images/keep-on-moving.webp";
 
 const DocumentContent = () => {
   const edit = useSelector((state: RootState) => state.edit.value);
@@ -42,8 +45,12 @@ const DocumentContent = () => {
         {edit ? (
           <EditArea></EditArea>
         ) : (
-          <div>
-            <Markdown>{config.documentContent}</Markdown>
+          <div className="markdown-body">
+            <Markdown
+              className={styles.content}
+              children={config.documentContent}
+              rehypePlugins={[rehypeRaw]}
+            ></Markdown>
           </div>
         )}
       </div>
