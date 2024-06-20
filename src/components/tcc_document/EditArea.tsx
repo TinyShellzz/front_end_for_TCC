@@ -1,7 +1,6 @@
 import { useFormik } from "formik";
 import styles from "./EditArea.module.css";
 import EditeAreaSchema from "../../schema/EditeAreaSchema";
-import { useParams } from "react-router-dom";
 import { config } from "../../config/config";
 import { useDispatch } from "react-redux";
 import { setEdit } from "../../store/doc_slice/EditDocumentSlice";
@@ -11,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 const EditArea = () => {
   const navigate = useNavigate();
 
-  const onSubmit = async (values: any, actions: any) => {
+  const onSubmit = async (values: any) => {
     // 等待 axios 执行完毕
     let data: any = await axios({
       method: "post",

@@ -46,6 +46,11 @@
   text-align: center;
 }
 
+.error {
+  font-size: 0.8rem;
+  color: rgb(255, 84, 112);
+}
+
 .input {
   display: block;
   width: 100%;

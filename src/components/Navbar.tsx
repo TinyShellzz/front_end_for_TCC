@@ -50,7 +50,9 @@ const Navbar = () => {
             </Link>
           </div>
           <div className={styles.normal_box}>
-            <p className={styles.p}>白名单</p>
+            <Link to="/whitelist">
+              <p className={styles.p}>白名单</p>
+            </Link>
           </div>
           <div className={styles.normal_box}>
             <p className={styles.p}>小黑屋</p>
@@ -60,7 +62,7 @@ const Navbar = () => {
               <p className={styles.p}>加入服务器</p>
             </div>
           )}
-          {permission != 0 && (
+          {permission == 1 && (
             <div className={styles.normal_box}>
               <p className={styles.p}>个人信息</p>
             </div>

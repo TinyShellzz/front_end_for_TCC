@@ -5,10 +5,12 @@ import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import loginWithSessionToken from "../hooks/loginWithSessionToken";
 import styles from "./EmailLoginForm.module.css";
+import { useState } from "react";
 
 const EmailLoginForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [errorMsg, setErrorMsg] = useState("");
 
   const onSubmit = async (values: any, actions: any) => {
     let data: any = await axios({
@@ -22,7 +24,7 @@ const EmailLoginForm = () => {
     }).then((res) => res.data);
 
     if (data && data.errorMessage != undefined) {
-      console.log(data.errorMessage);
+      setErrorMsg(data.errorMessage);
     } else {
       loginWithSessionToken(dispatch);
       navigate("/"); // 回到主页
@@ -94,6 +96,7 @@ const EmailLoginForm = () => {
               <Link to="/signup">注册一个</Link>
             </div>
           </div>
+          {errorMsg && <p className={styles.error}>{errorMsg}</p>}
 
           <div className={styles.box_submit}>
             <button

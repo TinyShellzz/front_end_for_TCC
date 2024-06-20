@@ -21,9 +21,8 @@ const DocumentContent = () => {
 
   const { data: doc, isError, refetch } = useDocumentQuery({ name: path });
   useEffect(() => {
-    console.log("refetch");
     refetch();
-  }, [path]);
+  }, [content_name]);
 
   if (isError) {
     return <div className={styles.root}>网络错误</div>;
