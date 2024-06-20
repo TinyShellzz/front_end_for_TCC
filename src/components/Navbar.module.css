@@ -7,6 +7,7 @@
   height: 3.5rem;
   position: sticky;
   top: 0px;
+  z-index: 100;
 }
 
 .box_content {

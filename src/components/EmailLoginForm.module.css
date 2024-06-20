@@ -1,7 +1,4 @@
 .box {
-  border-width: 2px;
-  border-style: solid;
-  border-color: black;
 
   display: flex;
   align-items: center;

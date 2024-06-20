@@ -6,7 +6,6 @@ import { config } from "./config/config";
 import loginWithSessionToken from "./hooks/loginWithSessionToken";
 import MainRouter from "./Routes/MainRouter";
 import { setMobile } from "./store/slice/MobileSlice";
-import { toggleMenu } from "./store/doc_slice/ChapterSlice";
 
 function App() {
   const dispatch = useDispatch();
