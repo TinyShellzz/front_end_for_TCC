@@ -24,9 +24,9 @@ function App() {
     function handleResize() {
       if (window.innerWidth >= 1000) {
         dispatch(setMobile(0));
-      } else if (window.innerWidth >= 800) {
+      } else if (window.innerWidth >= 850) {
         dispatch(setMobile(1));
-      } else if (window.innerWidth >= 650) {
+      } else if (window.innerWidth >= 700) {
         dispatch(setMobile(2));
       } else {
         dispatch(setMobile(3));
