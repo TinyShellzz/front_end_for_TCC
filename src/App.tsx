@@ -22,11 +22,11 @@ function App() {
   // 侦测页面大小
   useEffect(() => {
     function handleResize() {
-      if (window.innerWidth >= 1000) {
+      if (window.innerWidth >= 1100) {
         dispatch(setMobile(0));
-      } else if (window.innerWidth >= 850) {
+      } else if (window.innerWidth >= 1000) {
         dispatch(setMobile(1));
-      } else if (window.innerWidth >= 700) {
+      } else if (window.innerWidth >= 860) {
         dispatch(setMobile(2));
       } else {
         dispatch(setMobile(3));
